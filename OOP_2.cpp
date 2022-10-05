@@ -7,16 +7,16 @@
 
 using namespace std;
 
-Angle Angle::Init(int d, float m) //²í³ö³àë³çàö³ÿ çàäàíèõ çíà÷åíü.
+Angle Angle::Init(int d, float m) //Ініціалізація заданих значень.
 {
 	Angle tmp;
-	tmp.degrees = d; //Ãðàäóñè.
-	tmp.minutes = m; //Õâèëèíè.
+	tmp.degrees = d; //Градуси.
+	tmp.minutes = m; //Хвилини.
 	
 	return tmp;
 }
 
-Angle Angle::Read(int d, float m) //Ìåòîä ââåäåííÿ ³ç êëàâ³àòóðè.
+Angle Angle::Read(int d, float m) //Метод введення із клавіатури.
 {
 	Angle tmp;
 	cout << "degrees" << endl;
@@ -29,7 +29,7 @@ Angle Angle::Read(int d, float m) //Ìåòîä ââåäåííÿ ³ç êëàâ³�
 
 
 
-void Angle::Display() //Âèâ³ä çíà÷åíü  õâèëèí òà ãðàäóñ³â.
+void Angle::Display() //Вивід значень хвилин та градусів на екран.
 {
 	cout << "Minutes the Angle =" << minutes << endl;
 	cout << "Degrees the Angle =" << degrees << endl;
@@ -44,14 +44,14 @@ void Angle::Display() //Âèâ³ä çíà÷åíü  õâèëèí òà ãðàäó�
 
 	}
 
-float Angle::Radian() //Ïåðåâåäåííÿ ó ðàä³àíè.
+float Angle::Radian() //Переведення у радіани.
 {
 
 	return (degrees + (minutes / 60)) * (PI / 180);
 	
 }
 
-float Angle::constrainAngle360() //Ïðèâåäåííÿ äî ä³àïàçîíó 0 - 360
+float Angle::constrainAngle360() //Приведення до діапазону 0 - 360
 {
 	return fmod(minutes + degrees, 360.0);
 	if (minutes + degrees < 0.0)
@@ -59,45 +59,45 @@ float Angle::constrainAngle360() //Ïðèâåäåííÿ äî ä³àïàçîíó 
 	
 }
 
-float Angle::increaseAngle()  //Çá³ëüøåííÿ êóòà íà 50 ãðàäóñ³â
+float Angle::increaseAngle()  //Збільшення кута на 50 градусів
 {
 	return minutes +degrees + 50;
 	
 }
 
-float Angle::reductionAngle() //Çìåíüøåííÿ êóòà íà 50 ãðàäóñ³â.
+float Angle::reductionAngle() //Зменьшення кута на 50 градусів.
 {
 	return minutes + degrees - 50;
 	
 }
 
-float Angle::Sinus() //Ðîçðàõóíîê ñèíóñà êóòà.
+float Angle::Sinus() //Розрахунок синуса кута.
 {
 	
 	return sin(degrees+minutes);
 	
 }
 
-float Angle::comparsionAngle() //Ïîð³âíÿííÿ êóòà.
+float Angle::comparsionAngle() //Порівняння кута.
 {
 	
 	float Angle_1 = degrees + minutes;
 	
 		if (Angle_1 == 180)
-			cout << "Straight Angle" << endl; //Ðîçâåðíåíèé êóò.
+			cout << "Straight Angle" << endl; //Розвернений кут.
 		else if (Angle_1 > 90 && Angle_1 < 180)
-			cout << "Obtuse Angle" << endl;  //Òóïèé êóò.
+			cout << "Obtuse Angle" << endl;  //Тупий кут.
 		else if (Angle_1 > 0 && Angle_1 < 90)
-			cout << "Acute Angle" << endl; //Ãîñòðèé êóò.
+			cout << "Acute Angle" << endl; //Гострий кут.
 		else if (Angle_1 == 90)
-			cout << "Right Angle" << endl; //Ïðÿìèé êóò.
+			cout << "Right Angle" << endl; //Прямий кут.
 		else
-			cout << "Error in comparsion the Angle" << endl; //Ïîìèëêà ó ïîð³âíÿííÿ êóòà.
+			cout << "Error in comparsion the Angle" << endl; //Помилка у порівняння кута.
 		return 0;
 	
 }
 
-char Angle::toString() //Ïåðåòâîðåííÿ â ðÿäîê ðîçðàõîâàíèõ äàííèõ.
+char Angle::toString() //Перетворення в рядок розрахованих данних.
 {
 	cout << "Radian Angle = " << Radian() << endl;
 	cout << "Span Angle 0-360 is" << constrainAngle360() << endl;
