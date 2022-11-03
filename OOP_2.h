@@ -34,6 +34,11 @@ public:
 	Angle();
 	Angle(const Angle& ref_angle);
 	Angle(int m_degrees, double m_minutes);
+	
+	Angle& operator++ ();
+	Angle& operator-- ();
+	Angle operator+(const Angle& ref_angle);
+	
 private:
 	
 	float Radian();
