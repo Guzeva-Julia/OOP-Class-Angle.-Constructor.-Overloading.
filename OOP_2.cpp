@@ -3,6 +3,7 @@
 #include <math.h>
 #include<string>
 #include<cmath>
+#include <cassert>
 #define PI 3.141
 
 using namespace std;
@@ -24,6 +25,7 @@ Angle Angle::Read(int d, float m) //Метод введення із клаві�
 	cout << "minutes" << endl;
 	cin >> tmp.minutes;
 	return tmp;
+		
 }
 
 
@@ -43,6 +45,24 @@ void Angle::Display() //Вивід значень хвилин та градус
 	toString();
 
 	}
+
+Angle::Angle() //Конструктор за замовчуванням.
+{
+
+}
+Angle::Angle(const Angle &ref_angle) //Конструктор копіювання з одного об'єкта в інший.
+{
+	degrees=ref_angle.degrees; 
+	minutes = ref_angle.minutes;
+	
+}
+
+Angle::Angle(int m_degrees, double m_minutes) //Конструктор з двома параметрами, один з яких має значення за замовчуванням.
+{
+	assert(minutes != 0);
+	degrees = m_degrees;
+	minutes = m_minutes;
+}
 
 float Angle::Radian() //Переведення у радіани.
 {
@@ -106,8 +126,6 @@ char Angle::toString() //Перетворення в рядок розрахов
 	cout << "Sinus the Angle = " << Sinus() << endl;
 
 	return 0;
-	
-	
 	
 }
 
