@@ -63,6 +63,26 @@ Angle::Angle(int m_degrees, double m_minutes) //Конструктор з дво
 	degrees = m_degrees;
 	minutes = m_minutes;
 }
+Angle& Angle::operator++() //Prefix increment.
+{
+	this->degrees++;
+	this->minutes++;
+
+	return *this;
+}
+
+Angle& Angle::operator--() //Prefix decrement.
+{
+	this->degrees--;
+	this->minutes--;
+
+	return *this;
+}
+
+Angle Angle::operator+(const Angle& ref_angle) //Перевантаження оператора через дружню функцію.
+{
+	return Angle(ref_angle.degrees, ref_angle.minutes);
+}
 
 float Angle::Radian() //Переведення у радіани.
 {
